@@ -42,3 +42,15 @@ func (s *assetService) DeleteAsset(id int) error {
 
 	return nil
 }
+
+func (s *assetService) AssignAsset(req types.AssignedAssetReq) error {
+	// TODO: implement this
+
+	return nil
+}
+
+func (s *assetService) UnAssignAsset(id int) error {
+	// TODO: implement this
+
+	return nil
+}

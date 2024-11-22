@@ -17,19 +17,18 @@ func InitRoutes(e *echo.Echo, db *gorm.DB) {
 	dependencyController := controller.NewDependencyController(dependencyService)
 
 	assetGroup := e.Group("/api/v1/assets")
+	{
+		assetGroup.POST("", assetController.CreateAsset)
+		assetGroup.GET("", assetController.GetAssets)
+		assetGroup.GET("/:id", assetController.GetAssets)
+		assetGroup.PUT("/:id", assetController.UpdateAsset)
+		assetGroup.DELETE("/:id", assetController.DeleteAsset)
+		assetGroup.POST("/:id/assign", assetController.AssignAsset)
+		assetGroup.DELETE("/:id/unassign", assetController.UnassignAsset)
 
-	assetGroup.POST("", assetController.CreateAsset)
-	assetGroup.GET("", assetController.GetAssets)
-	assetGroup.GET("/:id", assetController.GetAssets)
-	assetGroup.PUT("/:id", assetController.UpdateAsset)
-	assetGroup.DELETE("/:id", assetController.DeleteAsset)
-
-	//POST /api/assets/:id/dependencies - Define dependencies for an asset
-	//GET /api/assets/:id/dependencies - Get dependencies of an asset
-	//DELETE /api/assets/:id/dependencies/:dependencyId - Remove a specific dependency
-
-	assetGroup.POST("/:id/dependencies", dependencyController.CreateDependencies)
-	assetGroup.GET("/:id/dependencies", dependencyController.GetDependencies)
-	assetGroup.DELETE("/:id/dependencies/:dependencyId", dependencyController.DeleteDependency)
+		assetGroup.POST("/:id/dependencies", dependencyController.CreateDependencies)
+		assetGroup.GET("/:id/dependencies", dependencyController.GetDependencies)
+		assetGroup.DELETE("/:id/dependencies/:dependencyId", dependencyController.DeleteDependency)
+	}
 
 }

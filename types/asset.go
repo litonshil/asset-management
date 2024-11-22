@@ -25,3 +25,10 @@ type AssetResp struct {
 	CreatedAt   time.Time      `json:"created_at"`
 	UpdatedAt   time.Time      `json:"updated_at"`
 }
+
+type AssignedAssetReq struct {
+	ID         int `json:"id"`
+	AssetID    int `json:"asset_id"`
+	UserID     int `json:"user_id"`
+	AssignedBy int `json:"assigned_by"`
+}

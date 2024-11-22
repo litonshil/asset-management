@@ -44,3 +44,15 @@ func (r *assetRepository) DeleteAsset(id int) error {
 
 	return nil
 }
+
+func (r *assetRepository) AssignAsset(req domain.AssignedAsset) error {
+	// TODO: implement this
+
+	return nil
+}
+
+func (r *assetRepository) UnAssignAsset(id int) error {
+	// TODO: implement this
+
+	return nil
+}

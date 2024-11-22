@@ -46,3 +46,11 @@ func (c *AssetController) UpdateAsset(ctx echo.Context) error {
 func (c *AssetController) DeleteAsset(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, "successfully deleted")
 }
+
+func (c *AssetController) AssignAsset(ctx echo.Context) error {
+	return ctx.JSON(http.StatusOK, "successfully assigned")
+}
+
+func (c *AssetController) UnassignAsset(ctx echo.Context) error {
+	return ctx.JSON(http.StatusOK, "successfully unassigned")
+}
