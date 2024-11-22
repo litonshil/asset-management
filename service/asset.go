@@ -54,3 +54,9 @@ func (s *assetService) UnAssignAsset(id int) error {
 
 	return nil
 }
+
+func (s *assetService) AssignLicense(req types.AssetLicenseReq) error {
+	// TODO: implement this
+
+	return nil
+}

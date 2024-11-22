@@ -56,3 +56,9 @@ func (r *assetRepository) UnAssignAsset(id int) error {
 
 	return nil
 }
+
+func (r *assetRepository) AssignLicense(req domain.AssetLicense) error {
+	// TODO: implement this
+
+	return nil
+}

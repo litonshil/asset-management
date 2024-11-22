@@ -35,6 +35,7 @@ type AssetUseCase interface {
 	DeleteAsset(id int) error
 	AssignAsset(req types.AssignedAssetReq) error
 	UnAssignAsset(id int) error
+	AssignLicense(req types.AssetLicenseReq) error
 }
 
 type AssetRepository interface {
@@ -45,4 +46,5 @@ type AssetRepository interface {
 	DeleteAsset(id int) error
 	AssignAsset(req AssignedAsset) error
 	UnAssignAsset(id int) error
+	AssignLicense(req AssetLicense) error
 }

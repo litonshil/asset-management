@@ -25,6 +25,7 @@ func InitRoutes(e *echo.Echo, db *gorm.DB) {
 		assetGroup.DELETE("/:id", assetController.DeleteAsset)
 		assetGroup.POST("/:id/assign", assetController.AssignAsset)
 		assetGroup.DELETE("/:id/unassign", assetController.UnassignAsset)
+		assetGroup.POST("/:id/license", assetController.AssignLicense)
 
 		assetGroup.POST("/:id/dependencies", dependencyController.CreateDependencies)
 		assetGroup.GET("/:id/dependencies", dependencyController.GetDependencies)

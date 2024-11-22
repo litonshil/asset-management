@@ -54,3 +54,7 @@ func (c *AssetController) AssignAsset(ctx echo.Context) error {
 func (c *AssetController) UnassignAsset(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, "successfully unassigned")
 }
+
+func (c *AssetController) AssignLicense(ctx echo.Context) error {
+	return ctx.JSON(http.StatusOK, "successfully assigned")
+}

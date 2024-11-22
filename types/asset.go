@@ -26,6 +26,11 @@ type AssetResp struct {
 	UpdatedAt   time.Time      `json:"updated_at"`
 }
 
+type AssetLicenseReq struct {
+	AssetID    int   `json:"asset_id"`
+	LicenseIDs []int `json:"license_ids"`
+}
+
 type AssignedAssetReq struct {
 	ID         int `json:"id"`
 	AssetID    int `json:"asset_id"`
