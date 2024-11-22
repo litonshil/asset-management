@@ -11,10 +11,13 @@ import (
 func InitRoutes(e *echo.Echo, db *gorm.DB) {
 	assetRepo := repository.NewAssetRepository(db)
 	dependencyRepo := repository.NewDependencyRepository(db)
+	versionRepo := repository.NewVersionRepository(db)
 	assetService := service.NewAssetService(assetRepo)
 	dependencyService := service.NewDependencyService(dependencyRepo)
+	versionService := service.NewVersionService(versionRepo)
 	assetController := controller.NewAssetController(assetService)
 	dependencyController := controller.NewDependencyController(dependencyService)
+	versionController := controller.NewVersionController(versionService)
 
 	assetGroup := e.Group("/api/v1/assets")
 	{
@@ -31,5 +34,17 @@ func InitRoutes(e *echo.Echo, db *gorm.DB) {
 		assetGroup.GET("/:id/dependencies", dependencyController.GetDependencies)
 		assetGroup.DELETE("/:id/dependencies/:dependencyId", dependencyController.DeleteDependency)
 	}
+
+	versionGroup := e.Group("/api/v1")
+	{
+		versionGroup.POST("/assets/:assetId/versions", versionController.CreateVersion)
+		versionGroup.GET("/assets/:assetId/versions", versionController.GetVersions)
+		versionGroup.GET("/assets/:assetId/versions/:versionId", versionController.GetVersion)
+		versionGroup.PUT("/assets/:assetId/versions/:versionId", versionController.UpdateVersion)
+		versionGroup.DELETE("/assets/:assetId/versions/:versionId", versionController.DeleteVersion)
+
+	}
+
+	//GET /assets/:assetId/versions
 
 }
